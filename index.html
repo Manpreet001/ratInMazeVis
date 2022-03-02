@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rat In Maze</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="backend.js" defer></script>
+</head>
+<body>
+    
+    
+    <h3 class="main_heading">Rat In Maze</h3>
+    <div class="parent">
+        <div class="grid">
+            <label for="rows">Dimensions</label>
+            <input type="text" name="dims" placeholder="n*n">
+            <button class="grid_btn btn">Generate</button>
+        </div>
+        <div class="input_area">
+            <h4 id="input_heading"></h4>
+            <input type="text" class="values" placeholder = "1,1,0,0...">
+            <button class="input_btn btn" >Enter</button>
+        </div>
+        <div class="container">
+            <!-- <div class="rat"></div> -->
+            <img src="./rat.png" class="rat" alt="rat">
+            <!-- <div class="box bt-0 bl-0"><span class="boxtext"></span></div>
+            <div class="box bt-0"><span class="boxtext"></span></div>
+            <div class="box bt-0 br-0"><span class="boxtext"></span></div>
+            <div class="box bl-0"><span class="boxtext"></span></div>
+            <div class="box"><span class="boxtext"></span></div>
+            <div class="box br-0"><span class="boxtext"></span></div>
+            <div class="box bb-0 bl-0"><span class="boxtext"></span></div>
+            <div class="box bb-0 "><span class="boxtext"></span></div>
+            <div class="box bb-0 br-0"><span class="boxtext"></span></div> -->
+            
+        </div>
+        <div class="output_div">
+            <h3 id="output_text">
+                Number of Paths : 
+                <span id="paths"></span>
+            </h3>
+            <button class="btn reload">Reload</button>
+        </div>
+    </div>
+    
+</body>
+</html>
