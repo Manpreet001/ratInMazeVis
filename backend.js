@@ -38,7 +38,7 @@ grid_btn.addEventListener("click", ()=>{
     let temp = rows;
     temp = 25/temp;
     let ratDim = temp;
-    console.log(ratDim);
+    
     add = parseInt(temp);
     container.style.gridTemplateRows = `repeat(${rows},${parseInt(temp)}vw)`;
     container.style.gridTemplateColumns = `repeat(${rows}, ${parseInt(temp)}vw)`;
@@ -59,26 +59,18 @@ function getInput(temp, ratDim){
             sp.style.fontSize = `${temp/2}vw`;
             sp.innerText = values[i];
             box.appendChild(sp);
-            // box.innerHTML = sp;
-            // box.innerText = values[i];
         })
         container.style.display=  "grid";
         output_div.style.display = "flex";
         let sub = matrix[0].getBoundingClientRect();
         myMatrix = storeValues(values, matrix);
-        console.log(changeMat);
         let t1 = matrix[1].getBoundingClientRect();
         let t2 = matrix[0].getBoundingClientRect();
-        // let t = rat.getBoundingClientRect();
-        // let width = parseInt(t.right-t.left);
-        // let stpoint = parseInt((t1.x + t2.x)/2 - t2.left - width);
         let stpoint = ratDim-temp;
-        console.log(temp);
-        console.log(stpoint);
-        let diff = t1.x-t2.x;
-        console.log(diff);
         
-        start(sub, myMatrix, diff, Math.round(stpoint), ratDim);
+        let diff = t1.x-t2.x;
+        
+        start(sub, myMatrix, diff, ratDim);
     })
     
 }
@@ -137,15 +129,14 @@ function getDirection( x ,  y){
 
 function moveUtil(x, y,sub, prevX, prevY){
     let cod = rat.getBoundingClientRect();
-    // rat.style.transform = `translate(${cod.x+x-sub.x}px, ${y+cod.y-sub.y}px)`;
-    // rat.style.transform = `translate(${cod.x-sub.x+x}vw, ${cod.y+y-sub.y}vw)`;
+    
     rat.style.transform = `translate(${prevX + x}vw, ${prevY+y}vw)`;
 }
 
 function move(path, diff, sub, prevX, prevY){
     let len = path.length;
     let i=0;
-    // let add = 5.92;
+    
     while(i<len){
 
         (function(i){
@@ -179,9 +170,9 @@ function move(path, diff, sub, prevX, prevY){
                 moveUtil(0, -add, sub, prevX, prevY);
                 prevX = 0;
                 prevY = 0;
-                // rat.style.transform = `translate(39px, 37px)`;
+                
                 rat.style.transform = `translate(0vw, 0vw)`;
-                console.log("Helo")
+                
                 total_paths += 1;
                 output_span.innerText = `${total_paths}`
                 }, 2000*(i+2));
@@ -192,16 +183,15 @@ function move(path, diff, sub, prevX, prevY){
     }
 }
 
-function start(sub, myMatrix, diff, temp, ratDim){
+function start(sub, myMatrix, diff, ratDim){
     rat.style.display = "block";
-    console.log(ratDim);
+    
     add = parseInt(ratDim);
     rat.style.width = `${ratDim}vw`;
     rat.style.height = `auto`;
     rat.style.transform = `translate(0vw, 0vw)`;
     prevX = 0;
     prevY = 0;
-    // rat.style.transform = `translate(32px, 32px)`;
     paths = util(0,0, myMatrix,dims);
     if(paths.length ==0){
         output_span.innerText = '0';
@@ -210,7 +200,7 @@ function start(sub, myMatrix, diff, temp, ratDim){
         move(paths,diff,sub, prevX, prevY);
 
     }
-    console.log(paths)
+    
 }
 
 reloadBtn.addEventListener("click", ()=>{
