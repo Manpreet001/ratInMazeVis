@@ -170,7 +170,9 @@ function move(path, diff, sub, prevX, prevY){
                 moveUtil(0, -add, sub, prevX, prevY);
                 prevX = 0;
                 prevY = 0;
-                
+                if(i==len-1){
+                    reloadBtn.style.display = "block";
+                }
                 rat.style.transform = `translate(0vw, 0vw)`;
                 
                 total_paths += 1;
